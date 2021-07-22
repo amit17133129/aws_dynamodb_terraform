@@ -8,7 +8,7 @@ pipeline {
         }
         stage('change directory') {
             steps {
-                sh 'sudo      echo  `"$(cat /var/lib/jenkins/workspace/email/date) ${{/root/mydir}}"`'
+                sh 'sudo      echo  `"$(cat /var/lib/jenkins/workspace/email/date) ${dir}"`'
             }
         }
         stage('email') {
