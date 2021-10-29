@@ -1,0 +1,8 @@
+region = "ap-south-1"
+dynamo_name = "GameScores"
+billing_mode = "PROVISIONED"
+dynamodb_table_tag = "dynamodb-table"
+projection_type = "INCLUDE"
+environment_tag = "production"
+hash_key = "GameTitle"
+index_name_secondary_index = "GameTitleIndex"
