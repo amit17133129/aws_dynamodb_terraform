@@ -1,49 +1,43 @@
 variable "region" {
   type        = string
   default     = ""
-  description = "enter region name"
+  description = "enter region"
 }
 
 
-
-variable "dynamo_name" {
+variable "aws_glue_catalog_database" {
   type        = string
   default     = ""
-  description = "enter dynamo db tabel name"
+  description = "enter aws_glue_catalog_database"
 }
 
-variable "billing_mode" {
+variable "aws_glue_catalog_table" {
   type        = string
   default     = ""
-  description = "enter billing_mode"
-}
-variable "dynamodb_table_tag" {
-  type        = string
-  default     = ""
-  description = "enter dynamodb_table_tag"
+  description = "enter aws_glue_catalog_table"
 }
 
 
-variable "projection_type" {
+variable "table_type" {
   type        = string
   default     = ""
-  description = "enter projection_type"
+  description = "enter table_type"
 }
 
-variable "environment_tag" {
+variable "input_format" {
   type        = string
   default     = ""
-  description = "enter projection_type"
+  description = "enter input_format"
 }
 
-variable "hash_key" {
+variable "output_format" {
   type        = string
   default     = ""
-  description = "enter hash_key"
+  description = "enter output_format"
 }
 
-variable "index_name_secondary_index" {
+variable "s3_location" {
   type        = string
   default     = ""
-  description = "enter hash_key"
+  description = "enter s3_location"
 }
