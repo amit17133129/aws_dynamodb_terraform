@@ -1,27 +1,15 @@
-# version: 2.1
-# orbs:
-#   terraform: circleci/terraform@1.2.1
-# jobs:
-#   single-job-lifecycle:
-#     executor: terraform/default
-#     steps:
-#     #  - checkout
-#       - terraform/init:
-# workflows:
-#   single-job-lifecycle:
-#     jobs:
-#       - single-job-lifecycle
 version: '2.1'
 orbs:
   terraform: circleci/terraform@3.0.0
 workflows:
   deploy_infra:
     jobs:
-    - terraform/validate:
-        checkout: true
-        context: terraform
-    - terraform/plan: 
-        checkout: true
+      # working_directory: "~/DynamoDB"
+      - terraform/validate:
+          checkout: true
+          context: terraform
+      - terraform/plan: 
+          checkout: true
         #context: terraform
     #     persist-workspace: true
     #     requires:
