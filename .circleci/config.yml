@@ -7,10 +7,10 @@ workflows:
       # working_directory: "~/DynamoDB"
       - terraform/validate:
           checkout: true
-          context: terraform
+          context: aws
       - terraform/plan: 
           checkout: true
-        #context: terraform
+          context: aws
     #     persist-workspace: true
     #     requires:
     #     - terraform/validate
