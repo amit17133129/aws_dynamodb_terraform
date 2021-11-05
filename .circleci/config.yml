@@ -22,11 +22,11 @@ workflows:
               only: master
           requires:
           - terraform/plan
-      - terraform/destroy:
-          attach-workspace: true
-          context: aws
-          filters:
-            branches:
-              only: master
-          requires:
-          - terraform/apply
+      # - terraform/destroy:
+      #     attach-workspace: true
+      #     context: aws
+      #     filters:
+      #       branches:
+      #         only: master
+      #     requires:
+      #     - terraform/apply
