@@ -3,7 +3,7 @@ jobs:
   plan:
     docker:
       - image: hashicorp/terraform:latest
-    working_directory: /DynamoDB
+    working_directory: /
     steps:
       - checkout
       - run:
@@ -14,7 +14,7 @@ jobs:
           command: terraform plan
           
       - persist_to_workspace:
-          root: /DynamoDB
+          root: /
           paths:
             - .
 
