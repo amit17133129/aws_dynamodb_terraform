@@ -4,5 +4,5 @@ provider "aws" {
 
 
 resource "aws_glue_catalog_database" "aws_glue_catalog_database" {
-  name = "amit-db"
+  name = "amit-db-11"
 }
