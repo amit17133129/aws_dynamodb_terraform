@@ -7,7 +7,7 @@ workflows:
     - terraform/validate:
         checkout: true
         #context: terraform
-    # - terraform/plan:
+    # - terraform/plan: 
     #     checkout: true
     #     #context: terraform
     #     persist-workspace: true
