@@ -1,0 +1,25 @@
+
+#Drone CI File!
+#Commit Message: Drone! Captain Canary is here! 
+
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+
+- name: build
+  image: centos:7
+  commands:
+    - "date"
+
+- name: publish  
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: amitsharma17133129/drone_test
+    auto_tag: true
+    auto_tag_suffix: drone-build
