@@ -6,22 +6,45 @@
 trigger:
 - master
 
+variables:
+- name: tf_folder
+  value: $(System.DefualtWorkingDirectory)/modules/main_module
+
 pool:
-  vmImage: windows-2019
+   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-- task: CmdLine@2
-  displayName: Installing Checkov
-  inputs:
-    script: 'pip3 install checkov'
+- script: | 
+     docker run --tty --volume $(tf_folder):/tf bridgecrew/checkov --directory /tf --compact
+  displayName: Running Checkov
 
-- task: CmdLine@2
-  inputs:
-    script: 'checkov --directory ${System.DefaultWorkingDirectory} -o junitxml > ${System.DefaultWorkingDirectory}/result.xml'
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: 'result.xml'
+
+
+
+
+
+
+
+
+
+
+# pool:
+#   vmImage: ubuntu-latest
+
+# steps:
+# - script: echo Hello, world!
+#   displayName: 'Run a one-line script'
+# - task: CmdLine@2
+#   displayName: Installing Checkov
+#   inputs:
+#     script: 'pip3 install checkov'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'checkov --directory ${System.DefaultWorkingDirectory} -o junitxml > ${System.DefaultWorkingDirectory}/result.xml'
+
+# - task: PublishTestResults@2
+#   inputs:
+#     testResultsFormat: 'JUnit'
+#     testResultsFiles: 'result.xml'
